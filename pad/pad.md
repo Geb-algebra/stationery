@@ -3,83 +3,90 @@
 ## Instruction
 
 <!--
-Describe the change shortly.
-Example: "Add due date support to TODO items"
+Describe the changes.
+You should include:
+
+* What changes will be made
+* Which files will be modified (with file paths)
+* Which existing implementations in which files are relevant
+* Libraries to be used
+* Edge cases to consider
+
+The more detailed you are, the more accurately the AI can work.
+However, don’t spend too much time—otherwise it might end up being faster for you to implement it yourself.
 -->
 
-### Related files
+## Current
 
 <!--
-(Optional)
-List files that are related to this change and briefly describe how.
-Example:
-- path/to/dialog.tsx — Dialog for editing TODO items
+Investigate the current implementation related to the "Instruction" section and explain all key entities, behaviors and their implementation detail.
+Attach the corresponding file name and line numbers for *every* item you document.
+
+DO NOT use any vague terms (e.g., "or", "probably", "seems to be"). Keep investigating until ambiguity is gone; if you still can’t find the info, DO NOT guess, instead write [**NEEDS INFORMATION**: {describe what you need}].
 -->
 
-- 
-
-### Notes
-
-<!-- 
-(Optional)
-Write anything you want AI to keep in mind:
-・Non-obvious design decisions
-・Corner cases to be careful about
-・Things that must not change
-Example:
-- Keep backward compatibility
-- Must support offline mode
--->
-
-## Specification
+### Key Entities
 
 <!--
-**Step 1.** Investigate the current key entities and behaviors from the implementation, and summarize them in the "Current" section. Attach the corresponding file name and line numbers for *every* item you document.
-**Step 2.** Following the instructions in the "Instruction" section, describe the key entities and behaviors for the new implementation in the "New" section, highlighting all changes from the current state in **bold**.
+Trace entity relations and items often used together, and extract all entities related to the changes without omission.
+-->
 
-Each scenario should fully describe:
+- **[Entity 1]**: [What it represents, key attributes without implementation]
+- **[Entity 2]**: [What it represents, relationships to other entities]
+
+### Behavior
+
+<!--
+You should describe all:
 - Normal behavior
 - Business rule boundaries
 - Error and constraint handling
 -->
 
-### Current
-
-#### Key Entities
-
-- **[Entity 1]**: [What it represents, key attributes without implementation]
-- **[Entity 2]**: [What it represents, relationships to other entities]
-
-#### Behavior
-
 1. **Given** [initial state], **When** [action], **Then** [expected outcome]
 2. **Given** [initial state], **When** [action], **Then** [expected outcome]
 
-### New
-
-#### Key Entities
-
-- **[Entity 1]**: [What it represents, key attributes without implementation]
-- **[Entity 2]**: [What it represents, relationships to other entities]
-
-#### Behavior
-
-1. **Given** [initial state], **When** [action], **Then** [expected outcome]
-2. **Given** [initial state], **When** [action], **Then** [expected outcome]
-
-## Implementation Plan
+### implementation
 
 <!--
-**Step 1.** Identify all existing code related to the new behavior and summarize it in the "Current" section, citing file names and line numbers.
-**Step 2.** Based on the current code, summarize the implementation plan for the new behavior in the "new" section. Keep code samples to a minimum, because implementers should not rely on samples — they must review the actual code and determine the implementation approach themselves.
-**Step 3.** Ensure the described implementation fully satisfies the previously stated specs; revise if anything is missing.
+List all implementation details required to achieve this change. Besides the modification points, include reusable existing implementations (shared logic, classes, components, etc.) and code locations that can serve as implementation references.
 -->
 
-### Current
+## New
 
+<!--
+Based on the “Instruction” section and the investigated current implementation, describe all related post-change key entities, the post-change behaviors, and their implementation details.
 
+DO NOT use any vague terms (e.g., "or", "probably", "seems to be"). Keep investigating until ambiguity is gone; if you still can’t find the info, DO NOT guess, instead write [**NEEDS INFORMATION**: {describe what you need}].
+-->
 
-### New
+### Key Entities
+
+<!--
+List all new entities and any existing entities in the "Current" section that will be updated.
+Unchanged entities shouldn't be listed.
+-->
+
+- **[Entity 1]**: [What it represents, key attributes without implementation]
+- **[Entity 2]**: [What it represents, relationships to other entities]
+
+### Behavior
+
+<!--
+List all new behaviors and any existing behaviors in the "Current" section that will be updated.
+Unchanged behaviors shouldn't be listed.
+-->
+
+1. **Given** [initial state], **When** [action], **Then** [expected outcome]
+2. **Given** [initial state], **When** [action], **Then** [expected outcome]
+
+### Implementation Plan
+
+<!--
+List all implementation details required to achieve the new behavior.
+After you write up, double-check if your plan fulfills all instructions, entity addition/updates and new/updated behavior
+-->
+
 
 ## Tasks
 
