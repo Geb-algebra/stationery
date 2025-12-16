@@ -9,9 +9,9 @@ You can write only the Pad throughout this session. DO NOT implement anything an
 1. Find the Pad by searching the name `pad.md` in this repo. if you can't find or find multiple, ask the user its path and stop your work.
 2. Check if "Instruction" section has at least a brief description of the change. If not, ask the user to fill the section and stop your work.
 3. Check the language used in the "Instruction" section and use the same language for your work.
-4. Check which sections are already filled in and from which point they are still blank.
+4. Check which sections (`## Current`, `## New` and `## Tasks`) are already filled in and from which point they are still blank.
 5. Read all completed sections, and if they include file names and line numbers for related code, read those as well.
-6. For the first unfilled Lv2 section (`##`), complete **only that Lv2 section**, following the instructions written in the comment directly under its section header. Do not write anything for subsequent Lv2 sections.
+6. For the first unfilled Lv2 section (`## Current`, `## New` or `## Tasks`) , complete **only that Lv2 section**, following the instructions written in the comment directly under its section header. Do not write anything for subsequent Lv2 sections.
 7. When finished, ask the user to review the result and stop working.
 
 ## Principles

@@ -19,7 +19,7 @@ However, don’t spend too much time—otherwise it might end up being faster fo
 ## Current
 
 <!--
-Investigate the current implementation related to the "Instruction" section and explain all key entities, behaviors and their implementation detail.
+Investigate the current implementation related to the "Instruction" section and explain all key entities, behaviors and their implementation detail with the current issues (i.e., the gap between the current implementation and what required in "Instruction" section)
 Attach the corresponding file name and line numbers for *every* item you document.
 
 DO NOT use any vague terms (e.g., "or", "probably", "seems to be"). Keep investigating until ambiguity is gone; if you still can’t find the info, DO NOT guess, instead write [**NEEDS INFORMATION**: {describe what you need}].
@@ -37,6 +37,10 @@ Trace entity relations and items often used together, and extract all entities r
 ### Behavior
 
 <!--
+The current behaviors of what we will develop or improve.
+It should be described for non-technical reviewers (i.e., without any highly-technical words)
+It also be black-box, which means that it should describe only behaviors of the UIs (if you'll develop an app), exposed classes or functions (if you'll develop a library or utilities) etc., not those of their implementation detail.
+
 You should describe all:
 - Normal behavior
 - Business rule boundaries
