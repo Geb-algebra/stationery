@@ -26,25 +26,54 @@ If you like the Pad, It is recommended to place the command globally to use it a
 | Claude Code    | no changes required                      | {repo root}/.claude/commands/ | ~/.claude/commands/ |
 | Codex          | no changes required                      |                               | ~/.codex/prompts/   |
 
-At every time you start a new work, 
+Every time you start new work:
 
-1. Instruct
-    1. Copy and paste `pad.md` to anywhere in your repository (where your AI agent can see). The filename must be `pad.md` so that your agent can find it.
-    2. Fill in the "Instruction" section in the `pad.md`.
-2. Investigate
-    1. Tell AI `/write-pad`. AI will fill in the "Current" section.
-    2. Review the "Current" section so that it is correct and it covers all related implementations.
-    3. Ask AI to fix or fix by yourself to pass the review
-3. Plan
-    1. Tell AI `/write-pad` again to fill in the "New" section. (recommended to refresh the session)
-    2. Review the "New" section so that it meets your requirements and design and implementation plan has no problems.
-    3. Ask AI to fix or fix by yourself to pass the review
-    4. Tell AI  `/write-pad` again to fill in the "Tasks" section. (recommended to refresh the session)
-    5.  Review the "Tasks" section.
-    6.  Ask AI to fix or fix by yourself to pass the review
-4. Implement
-    1.  Tell AI `/impl-pad` to implement following the Pad.  (recommended to refresh the session)
-    2.  Review and test the implementation.
-    3.  Ask AI to fix or fix by yourself if you need.
+### 1. Instruct
+
+**Option A: Create pad.md with inline instructions**
+- Run `/write-pad {your instructions}` directly
+- AI will create `pad.md` with your instructions in the Instruction section
+
+**Option B: Create pad.md manually**
+- Create an empty `pad.md` anywhere in your repository (where your AI agent can see)
+- Write your instructions directly in the file (no need for section structure)
+- Run `/write-pad`
+- AI will create the section structure and move your instructions to the Instruction section
+
+### 2. Investigate Current Implementation
+
+1. Run `/write-pad` to fill in the "Current" section
+2. Review the "Current" section:
+   - Verify it correctly describes the current implementation
+   - Confirm it covers all related code with file paths and line numbers
+   - Check the gap analysis against requirements
+3. If revisions needed, provide feedback and AI will update the Current section
+4. **Important**: Do NOT tell AI to proceed to the next section. Run `/write-pad` again when ready.
+
+### 3. Design New Implementation
+
+1. Run `/write-pad` to fill in the "New" section (recommended to refresh the session)
+2. Review the "New" section:
+   - Verify behaviors describe only the outermost interface (no internal implementation details)
+   - Confirm key entities are conceptual (no file/class names)
+   - Check implementation plan is specific enough that there's only one way to implement
+   - Ensure no ambiguous terms like "or", "probably", "might"
+3. If revisions needed, provide feedback and AI will update the New section
+4. **Important**: Do NOT tell AI to proceed to the next section. Run `/write-pad` again when ready.
+
+### 4. Break Down Tasks
+
+1. Run `/write-pad` to fill in the "Tasks" section (recommended to refresh the session)
+2. Review the "Tasks" section and provide feedback if needed
+
+### 5. Implement
+
+1. Run `/impl-pad` to implement following the Pad (recommended to refresh the session)
+2. AI will:
+   - Implement all tasks in the pad.md
+   - Verify all behaviors in the "New" section are satisfied
+   - Prioritize automated tests (will offer to set up testing framework if none exists)
+   - Fix and re-verify until all behaviors pass
+3. Review the implementation and provide feedback if needed
 
 After the implementation, you can delete your Pad completely.

@@ -6,23 +6,35 @@ You can write only the Pad throughout this session. DO NOT implement anything an
 
 ## Execution
 
-1. Find the Pad by searching the name `pad.md` in this repo. if you can't find or find multiple, ask the user its path and stop your work.
-2. **If pad.md is empty or only contains user instructions without any sections:**
-   - Create the initial structure with a title `# [Change Name]` and `## Instruction` section
-   - Move any existing content from pad.md into the `## Instruction` section
-   - Proceed to step 3
-3. **If pad.md already has sections:**
-   - Check if "Instruction" section has at least a brief description of the change. If not, ask the user to fill the section and stop your work.
-4. Check the language used in the "Instruction" section and use the same language for your work.
-5. Check which sections (`## Current`, `## New` and `## Tasks`) exist and are already filled in.
-6. Read all completed sections, and if they include file names and line numbers for related code, read those as well.
-7. Determine the next section to work on:
+1. **Handle user input**:
+   - **If the user provided inline instructions** (e.g., `/write-pad {instructions}`):
+     - Create `pad.md` with title `# [Change Name]` and `## Instruction` section
+     - Write the user's inline instructions into the `## Instruction` section
+     - Proceed to step 2
+   - **If no inline instructions were provided**:
+     - Find the Pad by searching for `pad.md` in this repo
+     - If you can't find it or find multiple, ask the user for its path and stop your work
+     - **If pad.md is empty or only contains user instructions without any sections:**
+       - Create the initial structure with a title `# [Change Name]` and `## Instruction` section
+       - Move any existing content from pad.md into the `## Instruction` section
+       - Proceed to step 2
+     - **If pad.md already has sections:**
+       - Check if "Instruction" section has at least a brief description of the change. If not, ask the user to fill the section and stop your work.
+2. Check the language used in the "Instruction" section and use the same language for your work.
+3. Check which sections (`## Current`, `## New` and `## Tasks`) exist and are already filled in.
+4. Read all completed sections, and if they include file names and line numbers for related code, read those as well.
+5. Determine the next section to work on:
    - If `## Current` doesn't exist or is empty, work on `## Current`
    - Else if `## New` doesn't exist or is empty, work on `## New`
    - Else if `## Tasks` doesn't exist or is empty, work on `## Tasks`
    - If all sections are complete, ask the user what to do next
-8. Complete **only that section** following the "Section Guidelines" below. Do not write anything for subsequent sections.
-9. When finished, ask the user to review the result and stop working.
+6. Complete **only that section** following the "Section Guidelines" below. Do not write anything for subsequent sections.
+7. When finished, ask the user to review the result and **STOP WORKING**.
+8. **CRITICAL: Do not proceed to the next section automatically**. Wait for the user to:
+   - Run `/write-pad` again to continue to the next section, OR
+   - Give explicit instructions like "proceed to New section" or "continue", OR
+   - Provide review comments to modify the current section
+   - If the user provides review comments, revise the current section based on their feedback. Do NOT move to the next section.
 
 ## Principles
 
@@ -253,7 +265,13 @@ Example:
 
 Based on "Instruction" and investigated current implementation, describe post-change entities, behaviors, and implementation plan.
 
-**Requirements**: Implementation plan must be specific enough that there's only one way to implement it. NO vague terms. If unclear, mark [**NEEDS INFORMATION**: {describe what you need}].
+**Requirements**:
+
+- Implementation plan must be **specific enough that there's only one way to implement it**
+- NO vague terms (e.g., "or", "probably", "might", "could")
+- NO ambiguous choices (e.g., "use X or Y", "either A or B")
+- If you cannot determine the specific approach, mark it as [**NEEDS INFORMATION**: {describe what you need}]
+- Every implementation decision must be concrete and unambiguous
 
 This section has three subsections:
 
