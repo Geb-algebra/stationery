@@ -1,7 +1,7 @@
 {
-  "name": "my-plugins",
+  "name": "stationery",
   "owner": {
-    "name": "Your Name"
+    "name": "Geb-algebra"
   },
   "plugins": [
     {
