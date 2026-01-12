@@ -7,7 +7,12 @@
     {
       "name": "pad",
       "source": "./pad",
-      "description": "Pad is a Markdown-based workflow for collaborating with AI that uses the implementation as the single source of truth, enabling spec-like, iterative development without relying on separate or fragile documentation."
+      "description": "A Markdown-based workflow for collaborating with AI that uses the implementation as the single source of truth, enabling spec-like, iterative development without relying on separate or fragile documentation."
+    },
+    {
+      "name": "notebook",
+      "source": "./notebook",
+      "description": "(WIP) Lightweight, persistent memory for AI agents. Records minimal, durable knowledge discovered through implementation."
     }
   ]
 }
