@@ -8,7 +8,7 @@ You can write only the Pad throughout this session. DO NOT implement anything an
 
 1. **Handle user input**:
    - **If the user provided inline instructions** (e.g., `/write-pad {instructions}`):
-     - Create `pad.md` with title `# [Change Name]` and `## Instruction` section
+     - Create `pad.md` at the project root with title `# [Change Name]` and `## Instruction` section
      - Write the user's inline instructions into the `## Instruction` section
      - Proceed to step 2
    - **If no inline instructions were provided**:
@@ -23,18 +23,18 @@ You can write only the Pad throughout this session. DO NOT implement anything an
 2. Check the language used in the "Instruction" section and use the same language for your work.
 3. Check which sections (`## Current`, `## New` and `## Tasks`) exist and are already filled in.
 4. Read all completed sections, and if they include file names and line numbers for related code, read those as well.
-5. Determine the next section to work on:
-   - If `## Current` doesn't exist or is empty, work on `## Current`
-   - Else if `## New` doesn't exist or is empty, work on `## New`
-   - Else if `## Tasks` doesn't exist or is empty, work on `## Tasks`
+5. Determine which sections need to be written:
+   - Identify all empty or missing sections among `## Current`, `## New`, and `## Tasks`
    - If all sections are complete, ask the user what to do next
-6. Complete **only that section** following the "Section Guidelines" below. Do not write anything for subsequent sections.
-7. When finished, ask the user to review the result and **STOP WORKING**.
-8. **CRITICAL: Do not proceed to the next section automatically**. Wait for the user to:
-   - Run `/write-pad` again to continue to the next section, OR
-   - Give explicit instructions like "proceed to New section" or "continue", OR
-   - Provide review comments to modify the current section
-   - If the user provides review comments, revise the current section based on their feedback. Do NOT move to the next section.
+6. **Default behavior**: Write all remaining sections sequentially, following the "Self-Review Loop" below for each section.
+   - **Exception**: If the user explicitly requests section-by-section review (e.g., "review each section", "one section at a time", "confirm before proceeding"), write only one section, ask for user review, and **STOP WORKING** until the user provides feedback or approval.
+7. **Self-Review Loop** (for each section):
+   - Write the section following "Section Guidelines" below
+   - Review what you wrote against "Principles" and "Section Guidelines"
+   - If any violation is found, revise the section
+   - Repeat review and revision until no violations remain
+   - Only after confirming no violations, proceed to the next section
+8. When all sections are complete, inform the user that the Pad is ready for review.
 
 ## Principles
 
@@ -44,10 +44,10 @@ Docs may lie; implementations do not.
 
 When working, you may use **only the following four types of information** as authoritative:
 
-* The implemented source code
-* Coding conventions or guidelines that *do not* describe the implementation
-* Any content in the Pad *outside* the `### Current` section
-* Your prior knowledge and information outside this repository (e.g., public documentation)
+- The implemented source code
+- Coding conventions or guidelines that *do not* describe the implementation
+- Any content in the Pad *outside* the `### Current` section
+- Your prior knowledge and information outside this repository (e.g., public documentation)
 
 Documents that *describe the implementation*—including specifications, design docs, and the contents of the Pad’s `## Current` section—may be used **only as guidance** to help you understand the implementation, guidelines, or instructions.
 They must **never** be treated as authoritative.
@@ -66,6 +66,7 @@ DO NOT use any vague terms (e.g., "or", "probably", "seems to be"). Keep investi
 Describe the changes. This section should already be written by the user before you start working.
 
 Expected contents:
+
 - What changes will be made
 - Which files will be modified (with file paths)
 - Which existing implementations in which files are relevant
@@ -81,11 +82,13 @@ Both "Current" and "New" sections have three subsections: **Behavior**, **Key En
 Describe the **outermost interface** behavior only.
 
 **Interface Boundary Rules**:
+
 - **Functions/classes**: Public API only. NO internal sub-functions, helper methods, or implementation details.
 - **APIs**: Endpoint interface (request/response) only. NO internal services, database operations, or internal objects.
 - **App features**: UI behavior only. NO APIs, services, or functions called internally.
 
 **Requirements**:
+
 - Black-box description from user's/caller's perspective
 - Comprehensive test coverage: ALL scenarios (normal paths, edge cases, error cases, input combinations)
 - Non-technical language suitable for non-technical reviewers
@@ -95,12 +98,14 @@ Describe the **outermost interface** behavior only.
 Describe the **conceptual model**, NOT implementation.
 
 **Focus on**:
+
 - What concepts/objects exist in the domain
 - What they represent in business/domain terms
 - How they relate conceptually
 - Key attributes (what data, not how implemented)
 
 **DO NOT mention**:
+
 - File names, class names, function names
 - Implementation details (storage, processing)
 - Technical implementation choices
@@ -110,6 +115,7 @@ Describe the **conceptual model**, NOT implementation.
 Map conceptual model to actual code.
 
 **Requirements**:
+
 - Every detail must include file paths and line numbers
 - Document which files/classes/modules implement each entity
 - Where entity data is stored/managed
@@ -131,6 +137,7 @@ This section has three subsections:
 See "Behavior Subsection Guidelines" above for detailed requirements.
 
 Format:
+
 ```markdown
 ### Behavior
 
@@ -145,6 +152,7 @@ Format:
 ```
 
 Example for a function:
+
 ```markdown
 ### Behavior
 
@@ -160,6 +168,7 @@ Example for a function:
 ```
 
 Example for an API:
+
 ```markdown
 ### Behavior
 
@@ -181,6 +190,7 @@ See "Key Entities Subsection Guidelines" above for detailed requirements.
 Trace entity relations and extract all related entities without omission.
 
 Format:
+
 ```markdown
 ### Key Entities
 
@@ -194,6 +204,7 @@ Format:
 ```
 
 Example:
+
 ```markdown
 ### Key Entities
 
@@ -214,6 +225,7 @@ See "Implementation Subsection Guidelines" above for detailed requirements.
 Map each entity from "Key Entities" to actual code implementation.
 
 Format:
+
 ```markdown
 ### Implementation
 
@@ -234,6 +246,7 @@ Format:
 ```
 
 Example:
+
 ```markdown
 ### Implementation
 
@@ -282,6 +295,7 @@ See "Behavior Subsection Guidelines" above for detailed requirements.
 List all new behaviors and updated existing behaviors. Unchanged behaviors should not be listed.
 
 Format:
+
 ```markdown
 ### Behavior
 
@@ -297,6 +311,7 @@ See "Key Entities Subsection Guidelines" above for detailed requirements.
 List all new entities and updated existing entities. Unchanged entities should not be listed.
 
 Format:
+
 ```markdown
 ### Key Entities
 
@@ -309,12 +324,14 @@ Format:
 See "Implementation Subsection Guidelines" above for detailed requirements.
 
 Structure:
+
 1. **Entity Implementation**: For each entity, specify files/classes/modules, data structures, and operations (with file paths)
 2. **Step-by-step Implementation**: Ordered list where each step specifies exact files to modify, changes to make, and patterns to follow
 
 After writing, verify plan fulfills all instructions, entity updates, and behaviors.
 
 Format:
+
 ```markdown
 ### Implementation Plan
 
@@ -341,6 +358,7 @@ Format:
 ```
 
 Example:
+
 ```markdown
 ### Implementation Plan
 
@@ -381,6 +399,7 @@ Example:
 Split the implementation plan in the previous section in small tasks.
 
 Format:
+
 ```markdown
 ## Tasks
 

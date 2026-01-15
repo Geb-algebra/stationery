@@ -1,7 +1,7 @@
 {
   "name": "pad",
   "description": "Pad is a Markdown-based workflow for collaborating with AI that uses the implementation as the single source of truth, enabling spec-like, iterative development without relying on separate or fragile documentation.",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "author": {
     "name": "Geb-algebra"
   }
