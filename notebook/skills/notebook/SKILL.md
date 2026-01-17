@@ -16,7 +16,7 @@ notebook/tech.md     - technical decisions and constraints
 notebook/behavior.md - AI behavior and decision rules
 ```
 
-If files don't exist, inform the user to run `scripts/init.sh`.
+If files don't exist, run `scripts/init.sh` at the project root to generate them.
 
 **CRITICAL: Notebook is NOT authoritative.**
 
