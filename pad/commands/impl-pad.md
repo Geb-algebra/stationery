@@ -8,8 +8,8 @@ Implement following your Pad (a markdown file named `pad.md` in this repository 
 2. Read the "Instruction" in the Pad and understand user's instruction.
 3. Check the language used in the "Instruction" section and use the same language for your work.
 4. Read the "Current" section and the source code referred in the section to understand current implementation.
-5. Read the "New" and "Tasks" section to understand how you should implement.
-6. Complete all tasks the user specify, or all tasks if no specification provided.
+5. Read the "New" section, especially the "Step-by-step Implementation" in the "Implementation Plan" subsection, to understand how you should implement.
+6. Follow the step-by-step implementation plan to complete the implementation.
 7. **Verify all behaviors in the Pad are satisfied**:
    - Read the `## New` section's `### Behavior` subsection in the Pad
    - This section contains test cases that must ALL be satisfied
